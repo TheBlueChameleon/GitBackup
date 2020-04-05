@@ -65,15 +65,18 @@ git status
 
 
 if [ "$FLAG_SETMASTER" = "1" ]; then
+  printf "First time use of Backup. Automatically pushing with comment 'initial commit' to branch 'master'.\n"
+  
   git commit -m "initial commit"
   git push --set-upstream origin master
+  
+  printf "done\n"
   
 else
   printf "Reader for checkin. Type\n"
   printf "   $COLOR_CYAN git commit -m \"version comments\"$COLOR_END\n"
   printf "   $COLOR_CYAN git push$COLOR_END\n"
-  printf "to upload the current status"
-  printf "\n"
+  printf "to upload the current status\n\n"
 fi
 
 echo done
