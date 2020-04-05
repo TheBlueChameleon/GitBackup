@@ -7,6 +7,8 @@
 # --------------------------------------------------------------------------- #
 
 REPOSITORY_NAME="GitBackup"
+FILE_PATTERNS="*.sh"
+  # put console-ready patterns here, separated by whitespaces
 
 # --------------------------------------------------------------------------- #
 # GIT setup
@@ -60,7 +62,11 @@ fi
 git config credential.helper store
 git config --global credential.helper 'cache --timeout 7200'
 
-git add *.sh
+for file in $FILE_PATTERNS
+do
+  git add *.sh
+done
+
 git status
 
 
