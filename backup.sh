@@ -5,6 +5,7 @@
 # feel free to adjust to your requirements
 
 # --------------------------------------------------------------------------- #
+# behaviour variables
 
 REPOSITORY_NAME="GitBackup"
 FILE_PATTERNS="*.sh"
