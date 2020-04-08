@@ -76,14 +76,18 @@ if [ "$FLAG_SETMASTER" = "1" ]; then
   
   git commit -m "initial commit"
   git push --set-upstream origin master
-  
-  printf "done\n"
-  
+    
 else
-  printf "Reader for checkin. Type\n"
-  printf "   $COLOR_CYAN git commit -m \"version comments\"$COLOR_END\n"
-  printf "   $COLOR_CYAN git push$COLOR_END\n"
-  printf "to upload the current status\n\n"
+  printf "Ready for checkin. Please give a changelog comment:\n"
+  read COMMITTEXT
+  
+  git commit -m "$COMMITTEXT"
+  git push
+  
+#   printf "Reader for checkin. Type\n"
+#   printf "   $COLOR_CYAN git commit -m \"version comments\"$COLOR_END\n"
+#   printf "   $COLOR_CYAN git push$COLOR_END\n"
+#   printf "to upload the current status\n\n"
 fi
 
 echo done
