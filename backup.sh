@@ -60,8 +60,11 @@ if [ ! -d ./.git ]; then
 fi
 
 
+
 git config credential.helper store
 git config --global credential.helper 'cache --timeout 7200'
+
+
 
 for FILE in $FILE_PATTERNS
 do
@@ -69,6 +72,7 @@ do
 done
 
 git status
+
 
 
 if [ "$FLAG_SETMASTER" = "1" ]; then
@@ -83,11 +87,6 @@ else
   
   git commit -m "$COMMITTEXT"
   git push
-  
-#   printf "Reader for checkin. Type\n"
-#   printf "   $COLOR_CYAN git commit -m \"version comments\"$COLOR_END\n"
-#   printf "   $COLOR_CYAN git push$COLOR_END\n"
-#   printf "to upload the current status\n\n"
 fi
 
 echo done
